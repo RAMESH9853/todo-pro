@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+    <style>
+        input[name]{
+            margin-top: 5px;
+        }
+        input[value]{
+            margin-top: 5px;
+        }
+        form{
+            border: 3px black solid;
+            box-shadow: 0px 0px 10px rgb(67, 43, 226);
+            padding: 10px;
+            border-radius: 20px;
+        }
+        h4{
+            border-radius: 15px;
+            border: 3px blue solid;
+            box-shadow: 0px 0px 10px rgb(67, 43, 226);
+            padding: 10px;
+        }
+        body{
+            background-color: green;
+        }
+    </style>
+</head>
+<body style="background-image: url('static/images/img6.jpg'); width: 500; height: 500; background-repeat: no-repeat; background-size: cover;   ">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <h4 class="text-center mt-5 bg-success font-weight-bold text-white">Enter Task...</h4>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <label class="font font-weight-bold">Title:</label>
+                    <input type="text" name="title" class="form-control" placeholder="Title">
+                    
+                    <div class="form-group">
+                    <label class="font font-weight-bold">Description:</label>
+                    <!-- <input type="text" name="description" class="form-control" placeholder="Description"> -->
+                    <textarea class="form-control" rows="5"  name="description" placeholder="Description"></textarea>
+                    </div>
+                   
+                    <label class="font font-weight-bold">Date:</label>
+                    <input type="date" name="date" class="form-control" placeholder="Date:">
+
+                
+                    <center>
+                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="reset" value="Cancel" class="btn btn-danger">
+                    </center>
+
+
+                </form>
+                <div class="text-center">
+                    <a href="{% url 'todo' %}" class="btn btn-primary mt-2">Goto Main Page</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

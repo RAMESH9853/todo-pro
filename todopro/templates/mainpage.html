@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+
+</head>
+
+<body style="background-image: url('static/images/img6.jpg'); width: 500; height: 500; background-repeat: no-repeat; background-size: cover;   ">
+    
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center font-weight-bold mt-2 text-white text-dark ">My To-Do List..</h1>
+                <div class="text-right display-3">
+                    <a href="{% url 'task' %}" class ="btn btn-success">Add Task</a>
+                </div>
+                {% if emps %}
+                
+                <table class="table table-bordered text-center">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-dark text-white">
+                        {% for i in emps  %}
+                        <tr>
+                            
+                            <td>
+                            <a href="{% url 'detail' i.id %}">{{ i.id }}.{{ i.title }}</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'update' i.id %}"  class=" btn btn-warning">Edit</a>
+                                <a href="{% url 'delete' i.id %}" class=" btn btn-danger">Delete</a> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                  {% else %}
+                  <h2 class=" text-center text-dark font-weight-bold">No Task...</h2>
+                  {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

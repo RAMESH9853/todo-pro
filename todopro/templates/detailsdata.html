@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+    <style>
+        h1{
+            border: 2px black solid;
+            box-shadow: 0px 0px 10px rgb(67, 43, 226);
+            padding: 3px;
+            border-radius: 20px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body style="background-image: url('/static/images/img7.jpg'); width: 500; height: 500; background-repeat: no-repeat; background-size: cover;   ">
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="offset-md-3 col-md-6 mb-5">
+                <table class="table mb-5">
+                <h1 class="text-center text-white mb-5">Task Details</h1>
+                <tr>
+                    <dt class="font font-weight-bold" >Title :</dt>
+                    <dd class="text-center">  {{ data.title }}</dd>
+                </tr>
+                <tr>
+                    <dt class="font font-weight-bold">Description:</dt>
+                    <dd class="text-center">  {{ data.description }}</dd>
+                </tr>
+                <tr>
+                    <dt class="font font-weight-bold">Date :</dt>
+                    <dd> {{ data.date }}</dd>
+                </tr>
+            </table>
+            <!-- <table class="table table-bordered text-center">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <h3>{{ data.title }}</h3>
+                        <h3>{{ data.description }}</h3>
+                        <h3>{{ data.date }}</h3>
+                    </tr>
+                </thead>
+                <tbody class="bg-dark text-white">
+                    {% for i in emps  %} -->
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+                    <!-- {% endfor %}
+                </tbody>
+            </table> -->
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="{% url 'todo' %}" class="btn btn-primary mt-2">Goto Main Page</a>
+    </div>
+</body>
+</html>
